@@ -50,7 +50,7 @@ export const signup = async (req: Request, res: Response) => {
             res.status(400).json({ error: "Invalid user data" })
         }
     } catch (error: any) {
-        console.log(error.message)
+        console.log("ERROR: ", error.message)
         res.status(500).json({ error: "Interal Server error" })
     }
 }
@@ -75,7 +75,7 @@ export const login = async (req: Request, res: Response) => {
         })
     }
     catch (error: any) {
-        console.log(error.message)
+        console.log("ERROR: ", error.message)
         res.status(500).json({ error: "Interal Server error" })
     }
 }
@@ -102,7 +102,7 @@ export const getMe = async (req: Request, res: Response) => {
             profilePic: user.profilePic
         })
     } catch (error: any) {
-        console.log(error.message)
+        console.log("ERROR: ", error.message)
         res.status(500).json({ error: "Interal Server error" })
     }
 }
