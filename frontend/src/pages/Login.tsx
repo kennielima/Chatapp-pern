@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useLogin from "../hooks/useLogin";
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -7,8 +8,11 @@ const Login = () => {
         password: "",
     });
 
+    const { loading, login } = useLogin();
+
     const handleSubmitForm = (e: React.FormEvent) => {
         e.preventDefault();
+        login(inputs.username, inputs.password);
     };
 
     return (
@@ -53,7 +57,9 @@ const Login = () => {
                     </Link>
 
                     <div>
-                        <button className='btn btn-block btn-sm mt-2'>Login</button>
+                        <button className='btn btn-block btn-sm mt-2' disabled={loading}>
+                            {loading ? "Loading..." : "Login"}
+                        </button>
                     </div>
                 </form>
             </div>

@@ -51,7 +51,7 @@ export const signup = async (req: Request, res: Response) => {
         }
     } catch (error: any) {
         console.log("ERROR: ", error.message)
-        res.status(500).json({ error: "Interal Server error" })
+        res.status(500).json({ error: "Internal Server error" })
     }
 }
 export const login = async (req: Request, res: Response) => {
@@ -85,7 +85,7 @@ export const logout = async (req: Request, res: Response) => {
         res.status(200).json({ message: "Logged out successfully" })
     } catch (error: any) {
         console.log(error.message)
-        res.status(500).json({ error: "Interal Server error" })
+        res.status(500).json({ message: "Internal Server error" })
     }
 }
 
