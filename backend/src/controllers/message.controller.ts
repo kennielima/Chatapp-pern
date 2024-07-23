@@ -1,6 +1,5 @@
 import { Request, Response } from "express"
 import prisma from "../db/prisma.js";
-import { create } from "domain";
 
 export const sendMessage = async (req: Request, res: Response) => {
     try {
