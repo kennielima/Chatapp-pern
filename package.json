@@ -34,6 +34,6 @@
     "socket.io": "^4.7.5"
   },
   "prisma": {
-  "schema": "backend/prisma/schema.prisma"
-}
+    "schema": "backend/prisma/schema.prisma"
+  }
 }
