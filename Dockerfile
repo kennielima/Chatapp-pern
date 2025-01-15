@@ -11,7 +11,6 @@ COPY package*.json ./
 RUN npm install
 RUN npx prisma generate
 
-COPY backend/src/db/prisma ./backend/src/db/prisma/
 COPY . .
 
 CMD ["npm", "run", "dev"]
