@@ -1,0 +1,31 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_URL: ${DATABASE_URL}
+    ports:
+      - "4001:4001"
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/backend/src
+    develop:
+      watch:
+        - action: rebuild
+          path: .
+          target: /
+          ignore: 
+           - node_modules/
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DATABASE: ${DB_NAME}
+    ports:
+      - "5432:5433"
+    volumes:
+      - db_data:/var/lib/postgres
+volumes:
+  db_data:
